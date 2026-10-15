@@ -2319,7 +2319,7 @@ function settingsTab(tab) {
         <span class="callout-icon">ℹ</span>
         <div><strong>Deployment URL Guide:</strong>
           <br>• <strong>Local Development:</strong> <code>http://127.0.0.1:8001/api/v1</code>
-          <br>• <strong>Render Production:</strong> <code>https://YOUR-RENDER-SERVICE.onrender.com/api/v1</code>
+          <br>• <strong>Render Production:</strong> <code>https://freightiq-cost-intelligence-8.onrender.com/api/v1</code>
           <br>• Trailing slashes and missing <code>/api/v1</code> prefixes are normalized automatically.
         </div>
       </div>

@@ -9,11 +9,13 @@ const fs = require('fs');
 const path = require('path');
 
 const configPath = path.join(__dirname, 'js', 'config.js');
+const DEFAULT_DEPLOYED_URL = "https://freightiq-cost-intelligence-8.onrender.com/api/v1";
+
 let apiUrl = (
   process.env.FREIGHTIQ_API_BASE_URL ||
   process.env.VITE_API_BASE_URL ||
   process.env.API_BASE_URL ||
-  ""
+  DEFAULT_DEPLOYED_URL
 ).trim();
 
 // Normalize URL: remove trailing slash and ensure /api/v1 suffix if not present
@@ -40,7 +42,7 @@ window.__FREIGHTIQ_CONFIG__ = {
 
 try {
   fs.writeFileSync(configPath, content, 'utf8');
-  console.log(`[FreightIQ Build] Injected API_BASE_URL: "${apiUrl || '(empty; runtime will auto-detect)'}"`);
+  console.log(`[FreightIQ Build] Injected API_BASE_URL: "${apiUrl}"`);
 } catch (err) {
   console.error('[FreightIQ Build] Failed to write config.js:', err.message);
   process.exit(1);

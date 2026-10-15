@@ -63,11 +63,12 @@
         resolved = (envConfig && !envConfig.includes('localhost') && !envConfig.includes('127.0.0.1')) ? envConfig.trim() : '';
       }
 
-      if (resolved) {
-        this.baseUrl = normalizeApiUrl(resolved);
+      if (this.isLocal) {
+        // In local development, use stored preference or local server default
+        this.baseUrl = storedUrl ? normalizeApiUrl(storedUrl) : DEFAULT_LOCAL_URL;
         this.isConfigured = true;
-      } else if (this.isLocal) {
-        this.baseUrl = DEFAULT_LOCAL_URL;
+      } else if (resolved) {
+        this.baseUrl = normalizeApiUrl(resolved);
         this.isConfigured = true;
       } else {
         this.baseUrl = '';
