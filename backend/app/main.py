@@ -5,6 +5,16 @@ Assembles API routers, middlewares, custom exception handlers, and storage lifec
 
 from __future__ import annotations
 
+import sys
+from pathlib import Path
+
+# Ensure repository root and backend directory are in sys.path
+_current = Path(__file__).resolve()
+for _parent in [_current.parents[2], _current.parents[1]]:  # root, backend
+    _p_str = str(_parent)
+    if _p_str not in sys.path:
+        sys.path.insert(0, _p_str)
+
 from contextlib import asynccontextmanager
 from typing import AsyncGenerator
 
