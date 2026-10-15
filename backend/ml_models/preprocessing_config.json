@@ -1,0 +1,48 @@
+{
+  "scaler_type": "RobustScaler",
+  "center": [
+    2.6312831939079375,
+    0.17459593817848118,
+    -0.24303465135150432,
+    0.0,
+    0.06836533861937127,
+    0.028185360852075247
+  ],
+  "scale": [
+    0.8796118430064794,
+    4.640059548969491,
+    11.326802541066382,
+    0.13471426045790835,
+    0.023399648248442283,
+    1.613247496197957
+  ],
+  "feature_names": [
+    "cost_per_tonne_km",
+    "pct_vs_history",
+    "pct_vs_peers",
+    "momentum_1w",
+    "history_volatility",
+    "z_score_history"
+  ],
+  "score_calibration": {
+    "min_score": -0.13169085055582458,
+    "max_score": 0.23445556596163042,
+    "score_range": 0.366146416517455
+  },
+  "training_feature_medians": {
+    "cost_per_tonne_km": 2.6312831939079375,
+    "pct_vs_history": 0.17459593817848118,
+    "pct_vs_peers": -0.24303465135150432,
+    "momentum_1w": 0.0,
+    "history_volatility": 0.06836533861937127,
+    "z_score_history": 0.028185360852075247
+  },
+  "training_feature_iqr": {
+    "cost_per_tonne_km": 0.8796118430064794,
+    "pct_vs_history": 4.640059548969491,
+    "pct_vs_peers": 11.326802541066382,
+    "momentum_1w": 0.13471426045790835,
+    "history_volatility": 0.023399648248442283,
+    "z_score_history": 1.613247496197957
+  }
+}

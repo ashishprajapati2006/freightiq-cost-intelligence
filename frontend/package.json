@@ -1,0 +1,20 @@
+{
+  "name": "freightiq-frontend",
+  "version": "0.2.0",
+  "description": "FreightIQ - Smart Freight Cost Intelligence frontend",
+  "main": "index.html",
+  "scripts": {
+    "build": "node build-config.js",
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000",
+    "serve": "npx -y serve . -l 8000"
+  },
+  "keywords": [
+    "freight",
+    "logistics",
+    "dashboard",
+    "freightiq"
+  ],
+  "author": "",
+  "license": "ISC"
+}

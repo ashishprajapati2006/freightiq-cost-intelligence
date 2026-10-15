@@ -1,0 +1,13 @@
+{
+  "dataset_id": "default",
+  "name": "Bundled Shipment Records (Default)",
+  "content_hash": "154a0b76cbc51ac7681d080f8fe7abd07aa8b63ae02bb68a7c937bcd935db163",
+  "shipment_count": 2940,
+  "route_count": 7,
+  "date_min": "2024-01-01",
+  "date_max": "2025-12-28",
+  "has_notes": true,
+  "notes_count": 10,
+  "created_at": "2026-10-14T23:24:16.460843Z",
+  "is_active": true
+}

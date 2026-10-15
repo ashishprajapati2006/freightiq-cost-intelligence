@@ -1,0 +1,31 @@
+# Render Blueprint Specification for FreightIQ
+# https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: freightiq-api
+    runtime: python
+    region: oregon
+    plan: free
+    rootDir: .
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: ENVIRONMENT
+        value: production
+      - key: FRONTEND_ORIGINS
+        value: https://YOUR-VERCEL-DOMAIN.vercel.app
+      - key: ALLOW_VERCEL_PREVIEWS
+        value: "true"
+      - key: ANOMALY_THRESHOLD_PCT
+        value: "20.0"
+      - key: MAX_HISTORICAL_WEEKS
+        value: "8"
+      - key: NOTE_DATE_WINDOW_DAYS
+        value: "42"
+      - key: MAX_UPLOAD_SIZE_BYTES
+        value: "26214400"

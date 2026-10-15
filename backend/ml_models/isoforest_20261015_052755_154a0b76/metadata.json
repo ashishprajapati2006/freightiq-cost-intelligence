@@ -1,0 +1,32 @@
+{
+  "model_version": "isoforest_20261015_052755_154a0b76",
+  "algorithm": "IsolationForest",
+  "training_date": "2026-10-15T05:27:56.093528Z",
+  "training_duration_seconds": 0.86,
+  "training_samples": 546,
+  "holdout_samples": 182,
+  "total_samples": 728,
+  "training_data_hash": "154a0b76cbc51ac7681d080f8fe7abd07aa8b63ae02bb68a7c937bcd935db163",
+  "features_used": [
+    "cost_per_tonne_km",
+    "pct_vs_history",
+    "pct_vs_peers",
+    "momentum_1w",
+    "history_volatility",
+    "z_score_history"
+  ],
+  "hyperparameters": {
+    "contamination": 0.03,
+    "n_estimators": 150,
+    "random_state": 42,
+    "holdout_weeks": 26
+  },
+  "agreement_with_baseline_pct": 96.43,
+  "artifacts": [
+    "model.joblib",
+    "feature_schema.json",
+    "preprocessing_config.json",
+    "evaluation_report.json",
+    "metadata.json"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "model_version": "isoforest_20261015_053227_154a0b76",
+  "evaluation_date": "2026-10-15T05:32:28.028939+00:00",
+  "dataset_hash": "154a0b76cbc51ac7681d080f8fe7abd07aa8b63ae02bb68a7c937bcd935db163",
+  "total_observations": 728,
+  "train_observations": 546,
+  "holdout_observations": 182,
+  "split_week": "2025-06-30",
+  "holdout_weeks_count": 26,
+  "contingency_matrix_full": {
+    "both_flagged": 16,
+    "ml_only": 10,
+    "det_only": 4,
+    "neither_flagged": 698
+  },
+  "contingency_matrix_holdout": {
+    "both_flagged": 9,
+    "ml_only": 0,
+    "det_only": 3,
+    "neither_flagged": 170
+  },
+  "metrics": {
+    "overall_agreement_pct": 98.08,
+    "overall_jaccard": 0.5333,
+    "holdout_agreement_pct": 98.35,
+    "holdout_jaccard": 0.75,
+    "score_quantiles": {
+      "all_median": 0.13375569507200355,
+      "all_p90": 0.37159446575245225,
+      "all_p95": 0.5757658048279403,
+      "normal_median": 0.13151262080361037,
+      "flagged_median": 0.7350278202833544
+    }
+  },
+  "documented_conclusions": "The scikit-learn Isolation Forest model was trained strictly without route identifier leakage and with zero look-ahead bias over 104 weekly observations. Because ground-truth anomaly labels do not exist in unlabelled freight data, the model was evaluated against the deterministic case-study 20% baseline. The model demonstrates high concordant agreement (98.08%) with the deterministic baseline while successfully identifying 16 of the 20 rule-flagged spikes. In the holdout partition (26 weeks), agreement was 98.35%. Cases where ML flagged without deterministic rule match represent multi-variate volatility patterns, whereas deterministic rule-only cases reflect single-dimension boundary breaches. Per governance constraints, the deterministic engine remains authoritative for numeric fields, and ML scores serve as an auxiliary risk-prioritization signal without inventing qualitative evidence.",
+  "methodological_notes": [
+    "Ground truth labels are unavailable in this unlabelled case study; classification accuracy, precision, recall, and F1 scores are intentionally omitted to avoid statistical fabrication.",
+    "Temporal holdout split reserves the final chronological weeks strictly for out-of-sample validation.",
+    "Feature set strictly avoids corridor identifiers and transporter IDs to prevent routing bias.",
+    "Deterministic calculations remain the authoritative operational baseline."
+  ]
+}

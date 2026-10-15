@@ -1,0 +1,60 @@
+{
+  "feature_names": [
+    "cost_per_tonne_km",
+    "pct_vs_history",
+    "pct_vs_peers",
+    "momentum_1w",
+    "history_volatility",
+    "z_score_history"
+  ],
+  "features": {
+    "cost_per_tonne_km": {
+      "name": "cost_per_tonne_km",
+      "dtype": "float64",
+      "description": "Work-weighted freight cost per tonne-km in INR",
+      "fill_value": 2.5,
+      "expected_min": 0.1,
+      "expected_max": 50.0
+    },
+    "pct_vs_history": {
+      "name": "pct_vs_history",
+      "dtype": "float64",
+      "description": "Percentage deviation from trailing 8-week historical baseline",
+      "fill_value": 0.0,
+      "expected_min": -100.0,
+      "expected_max": 500.0
+    },
+    "pct_vs_peers": {
+      "name": "pct_vs_peers",
+      "dtype": "float64",
+      "description": "Percentage deviation from same-week peer route average",
+      "fill_value": 0.0,
+      "expected_min": -100.0,
+      "expected_max": 500.0
+    },
+    "momentum_1w": {
+      "name": "momentum_1w",
+      "dtype": "float64",
+      "description": "1-week absolute unit cost delta from immediately prior available week",
+      "fill_value": 0.0,
+      "expected_min": -20.0,
+      "expected_max": 20.0
+    },
+    "history_volatility": {
+      "name": "history_volatility",
+      "dtype": "float64",
+      "description": "Rolling sample standard deviation of unit cost over trailing <= 8 weeks",
+      "fill_value": 0.0,
+      "expected_min": 0.0,
+      "expected_max": 10.0
+    },
+    "z_score_history": {
+      "name": "z_score_history",
+      "dtype": "float64",
+      "description": "Standardized unit cost deviation relative to trailing volatility",
+      "fill_value": 0.0,
+      "expected_min": -10.0,
+      "expected_max": 20.0
+    }
+  }
+}

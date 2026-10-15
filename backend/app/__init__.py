@@ -1,0 +1,3 @@
+"""FreightIQ Core Analytics and Anomaly Detection Engine."""
+
+__version__ = "0.1.0"

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#14243a">
+<title>FreightIQ — Smart Freight Cost Intelligence</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2314243a'/><path d='M5 23 13 7h5l-8 16H5Zm10 0 8-16h4l-8 16h-4Z' fill='%232563eb'/><path d='M8 27h18' stroke='%232563eb' stroke-width='2.5' stroke-linecap='round'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css"><script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="app-shell">
+<aside class="sidebar" id="sidebar">
+  <div class="brand"><div class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 23 13 7h5l-8 16H5Zm10 0 8-16h4l-8 16h-4Z" fill="currentColor"/><path d="M8 27h18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div><div class="brand-copy"><strong>Freight<span>IQ</span></strong><small>FREIGHT INTELLIGENCE</small></div><button class="icon-btn sidebar-collapse" id="collapseSidebar" aria-label="Collapse sidebar" aria-controls="sidebar" aria-expanded="true" title="Collapse sidebar"><span class="collapse-icon">‹</span></button></div>
+  <div class="workspace"><div class="workspace-icon">FT</div><div><strong>Freight operations</strong><small>Demo workspace</small></div><span class="chevron">⌄</span></div>
+  <nav class="nav" aria-label="Main navigation">
+   <div class="nav-label">WORKSPACE</div>
+   <a href="#/dashboard" class="nav-link" data-route="dashboard" data-tooltip="Overview" title="Overview"><span class="nav-icon">▦</span><span>Overview</span></a>
+   <a href="#/shipments" class="nav-link" data-route="shipments" data-tooltip="Shipment explorer" title="Shipment explorer"><span class="nav-icon">▤</span><span>Shipment explorer</span></a>
+   <a href="#/analytics" class="nav-link" data-route="analytics" data-tooltip="Route analytics" title="Route analytics"><span class="nav-icon">⌁</span><span>Route analytics</span></a>
+   <a href="#/anomalies" class="nav-link" data-route="anomalies" data-tooltip="Anomaly monitor" title="Anomaly monitor"><span class="nav-icon">◈</span><span>Anomaly monitor</span><span class="nav-count" id="anomalyNavCount">—</span></a>
+   <a href="#/context-notes" class="nav-link" data-route="context-notes" data-tooltip="Context notes" title="Context notes"><span class="nav-icon">▧</span><span>Context notes</span></a>
+   <div class="nav-label nav-label-spaced">INTELLIGENCE</div>
+   <a href="#/assistant" class="nav-link" data-route="assistant" data-tooltip="AI assistant" title="AI assistant"><span class="nav-icon">✳</span><span>AI assistant</span><span class="beta">DEMO</span></a>
+   <a href="#/data" class="nav-link" data-route="data" data-tooltip="Data import" title="Data import"><span class="nav-icon">⇧</span><span>Data import</span></a>
+   <a href="#/evaluation" class="nav-link" data-route="evaluation" data-tooltip="Evaluation & testing" title="Evaluation & testing"><span class="nav-icon">✓</span><span>Evaluation & testing</span></a>
+   <a href="#/usage" class="nav-link" data-route="usage" data-tooltip="Usage & cost" title="Usage & cost"><span class="nav-icon">◷</span><span>Usage & cost</span></a>
+   <div class="nav-bottom"><a href="#/settings" class="nav-link" data-route="settings" data-tooltip="Settings" title="Settings"><span class="nav-icon">⚙</span><span>Settings</span></a><div class="sidebar-foot"><div class="status-dot"></div><span>Frontend demo mode</span><span class="info-dot" title="No backend or live AI is connected">i</span></div></div>
+  </nav>
+</aside>
+<div class="mobile-backdrop" id="mobileBackdrop"></div>
+<main class="main-area">
+<header class="topbar"><div class="topbar-left"><button class="icon-btn mobile-menu" id="mobileMenu" aria-label="Open navigation">☰</button><div class="crumb"><span>Freight intelligence</span><b>/</b><strong id="crumbTitle">Overview</strong></div></div><div class="topbar-actions"><div class="dataset-pill"><span class="dataset-dot"></span><span id="datasetLabel">Sample shipment data</span><span class="chevron">⌄</span></div><button class="search-trigger" id="openSearch"><span>⌕</span><span>Search anything...</span><kbd>Ctrl K</kbd></button><button class="icon-btn notification-trigger" id="openNotifications" aria-label="Notifications">♧<i id="notificationDot"></i></button><button class="icon-btn" id="themeToggle" aria-label="Toggle theme">◐</button><button class="profile-trigger" id="profileTrigger"><span class="avatar">AP</span><span class="profile-copy"><strong>Ashish Prajapati</strong><small>Analyst workspace</small></span><span class="chevron">⌄</span></button></div></header>
+<div id="pageContent" class="page-content" tabindex="-1"></div>
+<footer class="app-footer"><span>FreightIQ <span class="muted">· Case study prototype</span></span><span><span class="status-dot"></span> Local demo data <b>·</b> Not connected to live services</span></footer>
+</main></div>
+<div class="toast-region" id="toastRegion" aria-live="polite"></div>
+<div class="overlay" id="modalOverlay" hidden><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-head"><div><h2 id="modalTitle">Dialog</h2><p id="modalSubtitle"></p></div><button class="icon-btn" id="modalClose" aria-label="Close dialog">×</button></div><div class="modal-body" id="modalBody"></div><div class="modal-actions" id="modalActions"></div></section></div>
+<div class="overlay search-overlay" id="searchOverlay" hidden><section class="command-palette" role="dialog" aria-modal="true" aria-label="Search FreightIQ"><div class="command-input"><span>⌕</span><input id="globalSearchInput" placeholder="Search pages, routes, shipments and notes..." autocomplete="off"><kbd>ESC</kbd></div><div id="globalSearchResults" class="command-results"></div><div class="command-foot"><span>↑↓ Navigate</span><span>↵ Open</span><span>ESC Close</span></div></section></div>
+<div class="popover-menu" id="notificationPanel" hidden></div><div class="popover-menu profile-menu" id="profileMenu" hidden><button data-action="profile">◉ &nbsp; Demo profile</button><button data-action="settings">⚙ &nbsp; Preferences</button><button data-action="about">ⓘ &nbsp; About FreightIQ</button></div>
+<script src="js/config.js?v=2.1"></script>
+<script src="js/api-client.js?v=2.1"></script>
+<script src="js/app.js?v=2.1"></script>
+</body></html>
